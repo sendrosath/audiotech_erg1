@@ -12,7 +12,7 @@ X = frame_wind(x, frame, ovrlp);
 
 % Υπολογισμός ενέργειας και Zero-Crossing Rate για κάθε frame
 energy = sum(X.^2);
-zcr = sum(abs(diff(sign(X)))) / (2 * frame);
+zcr = sum((sign(X(2:end, :)) - sign(X(1:end-1, :))).^2);
 
 % Παράμετροι a και b
 a = 0.9;
